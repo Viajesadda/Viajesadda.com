@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viajes ADDA — Cultural Immersion · Colombia</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gd:#112B20;
+  --g:#1A4330;
+  --gm:#2E6B4F;
+  --gold:#C9A840;
+  --gl:#DFC068;
+  --cr:#F7F2E8;
+  --w:#EDE5D0;
+  --p:#E4D9BF;
+  --t:#1A1208;
+  --m:#5A4E3A;
+  --l:#8A7A60;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cr);color:var(--t);overflow-x:hidden}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(17,43,32,.97);backdrop-filter:blur(10px)}
+.nav-row{display:flex;align-items:center;justify-content:space-between;padding:18px 60px}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:36px}
+.nav-links a{font-size:.69rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(247,242,232,.45);text-decoration:none;transition:color .3s;white-space:nowrap}
+.nav-links a:hover{color:var(--gold)}
+.nav-bar{height:1px;background:linear-gradient(to right,var(--gold),rgba(201,168,64,.1),transparent)}
+
+/* HERO */
+.hero{min-height:100vh;background:linear-gradient(135deg,#0a1f15 0%,var(--gd) 40%,var(--g) 100%);display:flex;align-items:center;padding-top:80px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;right:0;top:0;bottom:0;width:40%;background:radial-gradient(ellipse at 85% 50%,rgba(201,168,64,.06) 0%,transparent 70%)}
+.hero-content{position:relative;z-index:2;padding:80px 60px}
+.hero-eye{display:flex;align-items:center;gap:12px;font-size:.64rem;letter-spacing:.44em;text-transform:uppercase;color:var(--gl);margin-bottom:36px}
+.hero-eye::before{content:'';width:28px;height:1px;background:var(--gl);flex-shrink:0}
+.hero-sub{font-size:1rem;color:rgba(247,242,232,.75);line-height:1.85;max-width:520px;margin-bottom:14px;font-weight:300}
+.hero-note{font-size:.8rem;color:rgba(247,242,232,.35);font-style:italic;margin-bottom:44px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-g{background:var(--gold);color:var(--gd);border:none;padding:14px 30px;font-family:'DM Sans',sans-serif;font-size:.74rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;border-radius:2px;text-decoration:none;display:inline-block;transition:background .3s,transform .2s}
+.btn-g:hover{background:var(--gl);transform:translateY(-2px)}
+.btn-o{border:1px solid rgba(201,168,64,.38);color:var(--gl);background:transparent;padding:14px 30px;font-family:'DM Sans',sans-serif;font-size:.74rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;border-radius:2px;text-decoration:none;display:inline-block;transition:all .3s}
+.btn-o:hover{background:rgba(201,168,64,.08);border-color:var(--gold)}
+.hero-stats{position:absolute;bottom:60px;right:60px;z-index:2;display:flex;flex-direction:column;gap:14px}
+.stat{background:rgba(255,255,255,.04);border:1px solid rgba(201,168,64,.16);border-left:3px solid var(--gold);padding:13px 22px}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--gold);line-height:1}
+.stat-l{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(247,242,232,.33);margin-top:3px}
+
+/* STRIP */
+.strip{background:var(--gd);padding:36px 60px;text-align:center;border-top:1px solid rgba(201,168,64,.1);border-bottom:1px solid rgba(201,168,64,.1)}
+.strip p{font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2vw,1.45rem);font-weight:300;color:rgba(247,242,232,.68);letter-spacing:.04em}
+.strip em{font-style:italic;color:var(--gl)}
+
+/* SECTIONS */
+.sec{padding:96px 60px}
+.sec-eye{font-size:.64rem;letter-spacing:.44em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;color:var(--gd);line-height:1.18}
+h2 em{font-style:italic}
+.sub{font-size:.9rem;color:var(--m);line-height:1.8;font-weight:300;margin-top:12px;max-width:540px}
+.mw{max-width:1200px;margin:0 auto}
+.tc{text-align:center}.tc .sub{margin-left:auto;margin-right:auto}
+
+/* APPROACH */
+.approach-bg{background:var(--w)}
+.approach-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;max-width:1200px;margin:0 auto}
+.approach-text h2{margin-bottom:20px}
+.approach-text p{font-size:.92rem;color:var(--m);line-height:1.88;font-weight:300;margin-bottom:14px}
+.approach-text strong{color:var(--g);font-weight:500}
+.approach-ql{margin-top:24px;border-left:3px solid rgba(201,168,64,.45);padding-left:18px;font-size:.88rem;color:var(--l);font-style:italic;line-height:1.75}
+/* Photo panel — green gradient works without internet */
+.approach-photo{height:440px;border-radius:3px;overflow:hidden;background:linear-gradient(160deg,#1e5c3a 0%,#112b20 60%,#0a1f15 100%);position:relative;display:flex;align-items:flex-end}
+.approach-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.approach-photo:hover img{transform:scale(1.03)}
+.approach-photo-cap{position:relative;z-index:2;padding:18px 20px;font-family:'Cormorant Garamond',serif;font-size:.9rem;font-style:italic;color:rgba(247,242,232,.8);text-shadow:0 1px 6px rgba(0,0,0,.6)}
+/* Photo fallback text — visible when image doesn't load */
+.approach-photo-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:.18}
+.approach-photo-fallback span{font-family:'Cormorant Garamond',serif;font-size:1rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:260px 260px;gap:3px;background:var(--gd)}
+.g-cell{position:relative;overflow:hidden}
+/* Each cell has a unique gradient so it looks good even without internet */
+.g-cell:nth-child(1){background:linear-gradient(135deg,#1e5c3a,#0f3220)}
+.g-cell:nth-child(2){background:linear-gradient(135deg,#163d28,#1a4330)}
+.g-cell:nth-child(3){background:linear-gradient(135deg,#0f3220,#1a3828)}
+.g-cell:nth-child(4){background:linear-gradient(160deg,#2a6b45,#112b20)}
+.g-cell:nth-child(5){background:linear-gradient(135deg,#1a3828,#0d2218)}
+.g-cell:nth-child(6){background:linear-gradient(135deg,#163325,#1e4a30)}
+.g-cell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.g-cell:hover img{transform:scale(1.04)}
+.g-cell::after{content:'';position:absolute;inset:0;background:rgba(17,43,32,.28);transition:background .4s}
+.g-cell:hover::after{background:rgba(17,43,32,.06)}
+.g-info{position:absolute;bottom:0;left:0;right:0;z-index:1;padding:14px 16px;background:linear-gradient(to top,rgba(17,43,32,.88) 0%,transparent 100%);opacity:0;transform:translateY(5px);transition:all .35s}
+.g-cell:hover .g-info{opacity:1;transform:none}
+.g-tag{display:inline-block;margin-bottom:4px;font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;background:rgba(201,168,64,.82);color:var(--gd);padding:2px 9px;border-radius:20px}
+.g-cap{display:block;font-family:'Cormorant Garamond',serif;font-size:.88rem;font-style:italic;color:rgba(247,242,232,.9)}
+/* Gold corner marker per cell, visible even without photo */
+.g-cell-label{position:absolute;top:16px;left:16px;z-index:1;font-family:'Cormorant Garamond',serif;font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(201,168,64,.35)}
+
+/* PILLARS */
+.pillars-bg{background:var(--cr)}
+.pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px}
+.pillar{background:var(--w);padding:28px 24px;border-radius:3px;border-bottom:3px solid transparent;transition:all .3s}
+.pillar:hover{border-bottom-color:var(--gm);transform:translateY(-4px);box-shadow:0 12px 32px rgba(26,67,48,.1)}
+.pillar svg{width:26px;height:26px;margin-bottom:14px;color:var(--gold)}
+.pillar h3{font-family:'Cormorant Garamond',serif;font-size:1.18rem;font-weight:600;color:var(--gd);margin-bottom:8px}
+.pillar p{font-size:.81rem;color:var(--m);line-height:1.75;font-weight:300}
+
+/* WHO TRAVELS */
+.forwho-bg{background:var(--g)}
+.forwho-bg .sec-eye{color:var(--gl)}
+.forwho-bg h2{color:var(--cr)}
+.forwho-bg .sub{color:rgba(247,242,232,.5)}
+.persona-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px}
+.persona{background:rgba(255,255,255,.05);border:1px solid rgba(201,168,64,.14);padding:28px 24px;border-radius:3px;transition:all .3s}
+.persona:hover{background:rgba(201,168,64,.07);border-color:rgba(201,168,64,.35)}
+.persona h3{font-family:'Cormorant Garamond',serif;font-size:1.22rem;font-weight:600;color:var(--cr);margin-bottom:5px}
+.persona-age{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gl);margin-bottom:14px}
+.persona p{font-size:.81rem;color:rgba(247,242,232,.55);line-height:1.75;font-weight:300;margin-bottom:10px}
+.persona-note{font-size:.78rem !important;color:rgba(247,242,232,.32) !important;font-style:italic}
+.ptags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.ptag{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border:1px solid rgba(201,168,64,.2);color:rgba(201,168,64,.6);border-radius:20px}
+
+/* WHERE */
+.where-bg{background:var(--w)}
+.where-list{display:flex;flex-direction:column;max-width:900px;margin-top:52px}
+.w-item{display:grid;grid-template-columns:46px 1fr 22px;gap:20px;align-items:start;padding:22px 0;border-bottom:1px solid rgba(139,96,53,.13);text-decoration:none;color:inherit}
+.w-item:first-child{border-top:1px solid rgba(139,96,53,.13)}
+.w-item:hover .w-name{color:var(--g)}
+.w-item:hover .w-arr{opacity:1;transform:translateX(4px)}
+.w-n{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:300;color:rgba(26,67,48,.13);line-height:1;text-align:right;padding-top:2px}
+.w-reg{font-size:.59rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.w-name{font-family:'Cormorant Garamond',serif;font-size:1.28rem;font-weight:600;color:var(--gd);margin-bottom:5px;transition:color .3s}
+.w-desc{font-size:.8rem;color:var(--m);line-height:1.72;font-weight:300}
+.w-arr{font-size:.78rem;color:var(--gold);opacity:0;transition:all .3s;align-self:center}
+
+/* JOURNEYS */
+.journeys-bg{background:var(--p)}
+.j-list{display:flex;flex-direction:column;gap:16px;margin-top:52px}
+.j-item{display:grid;grid-template-columns:40px 1fr auto;gap:28px;align-items:center;background:var(--cr);border:1px solid rgba(139,96,53,.11);padding:28px 32px;border-radius:3px;border-left:4px solid var(--g);transition:all .3s}
+.j-item:hover{transform:translateY(-2px);box-shadow:0 14px 38px rgba(26,67,48,.1);border-left-color:var(--gold)}
+.j-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:rgba(26,67,48,.07);line-height:1;text-align:right}
+.j-lbl{font-size:.59rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.j-name{font-family:'Cormorant Garamond',serif;font-size:1.48rem;font-weight:400;color:var(--gd);margin-bottom:4px}
+.j-dur{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--l)}
+.j-desc{font-size:.81rem;color:var(--m);line-height:1.7;font-weight:300;max-width:420px;margin-top:10px}
+.j-price{text-align:right;flex-shrink:0}
+.j-from{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--l);display:block;margin-bottom:3px}
+.j-amt{font-family:'Cormorant Garamond',serif;font-size:1.62rem;font-weight:600;color:var(--gd);line-height:1}
+.j-cur{font-size:.65rem;color:var(--l);display:block;margin-top:2px}
+.j-badge{display:inline-block;margin-top:8px;font-size:.57rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;background:rgba(26,67,48,.08);color:var(--g);border-radius:20px}
+.j-note{margin-top:24px;font-size:.78rem;color:var(--l);font-style:italic;text-align:center}
+
+/* TESTIMONIALS */
+.testi-bg{background:var(--w)}
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:52px}
+.t-card{background:var(--cr);padding:28px 24px;border-radius:3px;transition:transform .3s}
+.t-card:hover{transform:translateY(-3px)}
+.t-stars{color:var(--gold);font-size:.76rem;letter-spacing:.06em;margin-bottom:14px}
+.t-quote{font-family:'Cormorant Garamond',serif;font-size:.92rem;font-style:italic;font-weight:300;color:var(--m);line-height:1.82;margin-bottom:20px}
+.t-foot{display:flex;align-items:center;gap:12px}
+.t-av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--g),var(--gm));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:.88rem;color:var(--gold);font-weight:600;flex-shrink:0}
+.t-name{font-size:.77rem;font-weight:500;color:var(--gd);display:block}
+.t-orig{font-size:.62rem;color:var(--l);letter-spacing:.06em}
+
+/* FAQ */
+.faq-bg{background:var(--cr)}
+.faq-list{display:flex;flex-direction:column;gap:9px;margin-top:52px;max-width:860px;margin-left:auto;margin-right:auto}
+.faq-item{background:var(--w);border:1px solid rgba(139,96,53,.11);border-radius:3px;overflow:hidden}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:19px 24px;cursor:pointer;font-size:.88rem;font-weight:400;color:var(--gd);transition:background .2s;user-select:none;gap:16px}
+.faq-q:hover{background:rgba(26,67,48,.03)}
+.faq-arr{width:16px;height:16px;flex-shrink:0;transition:transform .3s;color:var(--gold)}
+.faq-item.open .faq-arr{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;font-size:.84rem;color:var(--m);line-height:1.8;font-weight:300;padding:0 24px}
+.faq-item.open .faq-a{max-height:220px;padding:0 24px 20px}
+
+/* CONTACT */
+.contact-bg{background:var(--gd);padding:96px 60px;text-align:center;position:relative;overflow:hidden}
+.contact-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(201,168,64,.07) 0%,transparent 62%)}
+.contact-inner{position:relative;z-index:1;max-width:720px;margin:0 auto}
+.contact-bg .sec-eye{color:var(--gl)}
+.contact-bg h2{color:var(--cr);margin-bottom:12px}
+.contact-bg .sub{color:rgba(247,242,232,.55);margin:0 auto 16px}
+.contact-note{font-size:.79rem;color:rgba(247,242,232,.26);font-style:italic;margin-bottom:40px}
+.form{background:rgba(255,255,255,.04);border:1px solid rgba(201,168,64,.13);border-radius:3px;padding:36px 40px;text-align:left}
+.form-row{margin-bottom:18px}
+.form-row label{display:block;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(247,242,232,.45);margin-bottom:7px}
+.form-row input,.form-row textarea{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(201,168,64,.16);border-radius:2px;padding:11px 14px;font-family:'DM Sans',sans-serif;font-size:.87rem;color:var(--cr);outline:none;transition:border-color .3s}
+.form-row input::placeholder,.form-row textarea::placeholder{color:rgba(247,242,232,.18)}
+.form-row input:focus,.form-row textarea:focus{border-color:rgba(201,168,64,.45)}
+.form-row textarea{resize:vertical;min-height:100px}
+.fg2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-submit{width:100%;background:var(--gold);color:var(--gd);border:none;padding:14px;font-family:'DM Sans',sans-serif;font-size:.79rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;border-radius:2px;margin-top:6px;transition:background .3s}
+.form-submit:hover{background:var(--gl)}
+.channels{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:28px}
+.chan{display:flex;align-items:center;gap:7px;border:1px solid rgba(201,168,64,.2);background:rgba(255,255,255,.03);padding:9px 18px;border-radius:2px;font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(247,242,232,.45);text-decoration:none;transition:all .3s}
+.chan:hover{border-color:var(--gold);background:rgba(201,168,64,.07);color:var(--gl)}
+.contact-fine{font-size:.69rem;color:rgba(247,242,232,.18);font-style:italic;margin-top:20px}
+
+/* FOOTER */
+footer{background:var(--gd);border-top:1px solid rgba(201,168,64,.09);padding:30px 60px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.f-logo{font-family:'Cormorant Garamond',serif;font-size:.92rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.f-logo span{display:block;font-size:.52rem;font-weight:300;letter-spacing:.34em;color:rgba(201,168,64,.33);margin-top:2px}
+.f-contact a{font-size:.7rem;color:rgba(247,242,232,.38);text-decoration:none}
+.f-social{display:flex;gap:10px}
+.f-social a{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border:1px solid rgba(201,168,64,.16);border-radius:50%;color:rgba(247,242,232,.33);text-decoration:none;transition:all .3s}
+.f-social a:hover{border-color:var(--gold);color:var(--gold)}
+.f-copy{font-size:.6rem;color:rgba(247,242,232,.15)}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.rv.on{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .nav-row{padding:16px 24px}
+  .nav-links{gap:20px}
+  .hero-content{padding:60px 24px}
+  .hero-stats{right:24px;bottom:32px}
+  .sec{padding:64px 24px}
+  .approach-bg,.forwho-bg,.where-bg,.journeys-bg,.testi-bg,.faq-bg,.contact-bg{padding-left:24px;padding-right:24px}
+  .strip{padding:28px 24px}
+  footer{padding:24px;flex-direction:column;text-align:center}
+  .f-social{justify-content:center}
+  .approach-grid,.persona-grid,.t-grid{grid-template-columns:1fr}
+  .approach-photo{height:280px}
+  .pillars-grid{grid-template-columns:1fr 1fr}
+  .gallery{grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,200px)}
+  .j-item{grid-template-columns:1fr;gap:10px}
+  .j-num{display:none}
+  .j-price{text-align:left}
+  .fg2{grid-template-columns:1fr}
+  .form{padding:24px}
+  .w-item{grid-template-columns:38px 1fr 20px}
+  .contact-bg{padding:64px 24px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-row">
+    <a href="#" class="nav-logo">
+      <svg width="26" height="32" viewBox="0 0 26 32" fill="none">
+        <rect x=".7" y=".7" width="24.6" height="30.6" rx="1" stroke="#C9A840" stroke-width="1"/>
+        <path d="M13 4L22 28M13 4L4 28" stroke="#C9A840" stroke-width="1.15" stroke-linecap="round"/>
+        <path d="M7.5 18H18.5" stroke="#C9A840" stroke-width=".95" stroke-linecap="round"/>
+        <path d="M7 28 Q7 25.5 9.8 25.5" stroke="#C9A840" stroke-width=".85" stroke-linecap="round"/>
+      </svg>
+      <span class="nav-logo-text">Viajes ADDA</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#approach">Our Approach</a>
+      <a href="#experiences">Where We Go</a>
+      <a href="#journeys">Journeys</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+  <div class="nav-bar"></div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eye">Regenerative Cultural Travel · Colombia</div>
+    <p class="hero-sub">ADDA COMMUNITY designs cultural immersion experiences in Colombia for adults 50+. Small groups, thoughtful pacing, and access to real communities.</p>
+    <p class="hero-note">We take care of the structure — so you can be present for what unfolds.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-g">Start your journey</a>
+      <a href="#experiences" class="btn-o">Explore experiences</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-n">4–10</div><div class="stat-l">travelers per group</div></div>
+    <div class="stat"><div class="stat-n">5</div><div class="stat-l">regions of Colombia</div></div>
+    <div class="stat"><div class="stat-n">50+</div><div class="stat-l">designed for this stage of life</div></div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <p>This is not a traditional trip. <em>It's a different way of being in a place.</em></p>
+</div>
+
+<!-- APPROACH -->
+<section class="sec approach-bg" id="approach">
+  <div class="approach-grid">
+    <div class="rv">
+      <div class="sec-eye">Our Approach</div>
+      <h2>We're not a travel agency.<br><em>We design the conditions<br>for real experiences.</em></h2>
+      <div style="margin-top:22px">
+        <p>ViajesADDA handles what most travelers don't see: access to local communities, culturally aware facilitators, and logistics that support rather than overwhelm.</p>
+        <p>You won't be rushed through a checklist. You won't be placed in staged experiences designed for outside audiences. Instead, you'll have <strong>time, context, and proximity</strong> to what is actually there.</p>
+        <p>Colombia is a complex, diverse, living territory. Each person engages with it differently — and that difference is the point.</p>
+        <div class="approach-ql">We organize the journey. What you find in it is personal.</div>
+      </div>
+    </div>
+    <div class="approach-photo rv" style="transition-delay:.18s">
+      <div class="approach-photo-fallback">
+        <span>Valle del Cocora</span>
+        <span style="font-size:.6rem;letter-spacing:.35em">Salento · Colombia</span>
+      </div>
+      <img src="https://images.unsplash.com/photo-1557733686-45c927db98e9?w=800&q=85" alt="Valle del Cocora" loading="lazy" onerror="this.style.display='none'">
+      <div class="approach-photo-cap">Valle del Cocora, Salento · Territory, altitude, silence.</div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<div class="gallery">
+  <div class="g-cell">
+    <div class="g-cell-label">Cartagena</div>
+    <img src="https://images.unsplash.com/photo-1536308037887-165852797016?w=700&q=85" alt="Cartagena" loading="lazy" onerror="this.style.display='none'">
+    <div class="g-info"><span class="g-tag">Caribbean Coast</span><span class="g-cap">Cartagena de Indias · Color &amp; history</span></div>
+  </div>
+  <div class="g-cell">
+    <div class="g-cell-label">Cocora</div>
+    <img src="https://images.unsplash.com/photo-1557733686-45c927db98e9?w=700&q=85" alt="Cocora" loading="lazy" onerror="this.style.display='none'">
+    <div class="g-info"><span class="g-tag">Eje Cafetero</span><span class="g-cap">Finca El Ocaso · Coffee region, Salento</span></div>
+  </div>
+  <div class="g-cell">
+    <div class="g-cell-label">Wax Palms</div>
+    <img src="https://images.unsplash.com/photo-1572882602941-ba4fba8d3b1f?w=700&q=85" alt="Wax Palms" loading="lazy" onerror="this.style.display='none'">
+    <div class="g-info"><span class="g-tag">Natural Heritage</span><span class="g-cap">Valle del Cocora · World's tallest palms</span></div>
+  </div>
+  <div class="g-cell">
+    <div class="g-cell-label">Culture</div>
+    <img src="https://images.unsplash.com/photo-1705965485279-4c3ee59ea5af?w=700&q=85" alt="Culture" loading="lazy" onerror="this.style.display='none'">
+    <div class="g-info"><span class="g-tag">Culture &amp; People</span><span class="g-cap">Cartagena · Living culture, real encounters</span></div>
+  </div>
+  <div class="g-cell">
+    <div class="g-cell-label">Medellín</div>
+    <img src="https://images.unsplash.com/photo-1551282643-392c82ebb909?w=700&q=85" alt="Medellin" loading="lazy" onerror="this.style.display='none'">
+    <div class="g-info"><span class="g-tag">Urban Culture</span><span class="g-cap">Medellín · Transformation &amp; community</span></div>
+  </div>
+  <div class="g-cell">
+    <div class="g-cell-label">Sunset</div>
+    <img src="https://images.unsplash.com/photo-1707922741387-da5a09ae546d?w=700&q=85" alt="Sunset" loading="lazy" onerror="this.style.display='none'">
+    <div class="g-info"><span class="g-tag">Andes</span><span class="g-cap">Valle de Cocora · Palms at golden hour</span></div>
+  </div>
+</div>
+
+<!-- PILLARS -->
+<section class="sec pillars-bg" id="how">
+  <div class="mw">
+    <div class="rv tc">
+      <div class="sec-eye">How We Operate</div>
+      <h2>What we <em>bring to the table</em></h2>
+      <p class="sub">We design the conditions for a genuine encounter. What you do with that encounter is entirely your own.</p>
+    </div>
+    <div class="pillars-grid rv" style="transition-delay:.1s">
+      <div class="pillar">
+        <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="14" cy="14" r="10"/><path d="M14 8v6l3.5 2" stroke-linecap="round"/></svg>
+        <h3>Non-competitive pace</h3>
+        <p>No rigid itineraries. Time is part of the experience, not something to optimize away.</p>
+      </div>
+      <div class="pillar">
+        <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 5c-4.5 0-7.8 3.2-7.8 6.8s3.3 6.8 7.8 6.8 7.8-3.2 7.8-6.8S18.5 5 14 5z"/><path d="M9 22c0-2.8 2.2-4.8 5-4.8s5 2 5 4.8" stroke-linecap="round"/></svg>
+        <h3>Communities, not scenarios</h3>
+        <p>Access to real people in real contexts. No staged cultural performances designed for visitors.</p>
+      </div>
+      <div class="pillar">
+        <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="9" cy="11" r="3"/><circle cx="19" cy="11" r="3"/><path d="M3 24c0-3.2 2.7-5.8 6-5.8M25 24c0-3.2-2.7-5.8-6-5.8M12 24c0-2.6.8-4.2 2.2-4.2s2.2 1.6 2.2 4.2" stroke-linecap="round"/></svg>
+        <h3>Small groups, intentionally</h3>
+        <p>4 to 10 travelers. An operational decision, not a marketing claim.</p>
+      </div>
+      <div class="pillar">
+        <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 14c0-4 3.6-7.2 8.2-7.2s8.2 3.2 8.2 7.2-3.6 7.2-8.2 7.2c-1.5 0-3-.4-4.2-1.1L4 21l1.2-4.8C4.8 15.4 5 14.7 5 14z"/></svg>
+        <h3>Facilitators, not tour guides</h3>
+        <p>Our team accompanies you through the experience. They don't narrate it for you.</p>
+      </div>
+      <div class="pillar">
+        <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 3C9.5 3 6 6.5 6 11c0 5.8 8 13.5 8 13.5S22 16.8 22 11c0-4.5-3.5-8-8-8z"/><circle cx="14" cy="10.5" r="2.5" stroke-width="1.2"/></svg>
+        <h3>Logistics that don't interrupt</h3>
+        <p>Comfortable accommodation and transport — present when needed, invisible when not.</p>
+      </div>
+      <div class="pillar">
+        <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14 4l1.5 4.5H20l-4 2.9 1.5 4.6L14 13l-3.5 3 1.5-4.6-4-2.9h4.5z"/><path d="M7 21h14M14 16v5" stroke-linecap="round"/></svg>
+        <h3>Direct local impact</h3>
+        <p>Part of your investment supports local initiatives. Transparent, traceable, and intentional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO TRAVELS -->
+<section class="sec forwho-bg" id="community">
+  <div class="mw">
+    <div class="rv tc">
+      <div class="sec-eye">Who travels with us</div>
+      <h2 style="color:var(--cr)">Not profiles to fit into —<br><em>just patterns we recognize</em></h2>
+      <p class="sub">They value experiences that are well-organized, without feeling controlled.</p>
+    </div>
+    <div class="persona-grid rv" style="transition-delay:.12s">
+      <div class="persona">
+        <h3>The Intentional Traveler</h3>
+        <div class="persona-age">50+ · Worldwide</div>
+        <p>Has traveled before, but now wants experiences that feel more grounded and less performative. They care about where they go, who they meet, and how their presence impacts the place.</p>
+        <p class="persona-note">Not looking for something "life-changing" — but for something real, well-held, and worth their time.</p>
+        <div class="ptags"><span class="ptag">Meaningful experiences</span><span class="ptag">Local connection</span><span class="ptag">Thoughtful travel</span></div>
+      </div>
+      <div class="persona">
+        <h3>The Rebalancing Traveler</h3>
+        <div class="persona-age">55–70 · Worldwide</div>
+        <p>At a stage where time is no longer structured the same way. Travel becomes less about escape and more about recalibration. Looking for a different rhythm, space without pressure, and experiences that don't demand performance.</p>
+        <p class="persona-note">Not searching for answers — but open to seeing things differently.</p>
+        <div class="ptags"><span class="ptag">Slower pace</span><span class="ptag">Space and clarity</span><span class="ptag">Personal rhythm</span></div>
+      </div>
+      <div class="persona">
+        <h3>The Selective Explorer</h3>
+        <div class="persona-age">60–80 · Worldwide</div>
+        <p>Has already traveled extensively. Now chooses carefully. Less interested in covering destinations — more interested in understanding them. Values simplicity, depth, and real conversations over volume.</p>
+        <p class="persona-note">They value experiences that are well-organized, without feeling controlled.</p>
+        <div class="ptags"><span class="ptag">Depth over volume</span><span class="ptag">Simplicity</span><span class="ptag">Real conversations</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHERE WE GO -->
+<section class="sec where-bg" id="experiences">
+  <div class="mw">
+    <div class="rv tc">
+      <div class="sec-eye">Where This Happens</div>
+      <h2>Each place offers a different<br><em>way to engage</em></h2>
+      <p class="sub">Named places, specific activities, real people.</p>
+    </div>
+    <div class="where-list rv" style="transition-delay:.1s">
+      <a class="w-item" href="https://en.wikipedia.org/wiki/Cocora_Valley" target="_blank"><div class="w-n">01</div><div><div class="w-reg">Eje Cafetero · Quindío</div><div class="w-name">Valle del Cocora — Walk + lunch at Donde Laurita</div><div class="w-desc">Hike among the world's tallest wax palms at a managed pace through cloud forest. Trout lunch at Donde Laurita — a family restaurant inside the valley, known by locals for decades.</div></div><div class="w-arr">↗</div></a>
+      <a class="w-item" href="https://www.fincaelocasosalento.com" target="_blank"><div class="w-n">02</div><div><div class="w-reg">Salento · Quindío</div><div class="w-name">Coffee Experience — Finca El Ocaso</div><div class="w-desc">A 100-year-old working farm. Full cycle from picking to brewing — guided by people whose families have grown coffee for generations.</div></div><div class="w-arr">↗</div></a>
+      <a class="w-item" href="https://en.wikipedia.org/wiki/Salento,_Quind%C3%ADo" target="_blank"><div class="w-n">03</div><div><div class="w-reg">Quindío</div><div class="w-name">Salento — Coffee town, living architecture</div><div class="w-desc">One of Colombia's best-preserved colonial coffee towns. Colorful bahareque buildings, Willys jeeps, local artisans. We walk slowly and eat where locals eat.</div></div><div class="w-arr">↗</div></a>
+      <a class="w-item" href="https://en.wikipedia.org/wiki/Armenia,_Colombia" target="_blank"><div class="w-n">04</div><div><div class="w-reg">Armenia · Quindío</div><div class="w-name">Jardín Botánico de Armenia</div><div class="w-desc">An Andean botanical garden protecting native species — orchids, heliconias, hummingbirds. Guided by a naturalist who explains ecosystems, not just names.</div></div><div class="w-arr">↗</div></a>
+      <a class="w-item" href="https://en.wikipedia.org/wiki/Cartagena,_Colombia" target="_blank"><div class="w-n">05</div><div><div class="w-reg">Bolívar · Caribbean Coast</div><div class="w-name">Cartagena — Colonial city, Caribbean identity</div><div class="w-desc">Beyond the walled city into Getsemaní. Local artists, community leaders. The tension between heritage tourism and living culture that every resident navigates daily.</div></div><div class="w-arr">↗</div></a>
+      <a class="w-item" href="https://en.wikipedia.org/wiki/Magdalena_River" target="_blank"><div class="w-n">06</div><div><div class="w-reg">Barranquilla · Atlántico</div><div class="w-name">Sunset on the Río Magdalena + Sombrero Vueltiao</div><div class="w-desc">Colombia's main river at dusk. Morning visit to artisans weaving the sombrero vueltiao — identity coded into craft.</div></div><div class="w-arr">↗</div></a>
+      <a class="w-item" href="https://en.wikipedia.org/wiki/La_Comuna" target="_blank"><div class="w-n">07</div><div><div class="w-reg">Medellín · Antioquia</div><div class="w-name">Community Activity — Comuna 13</div><div class="w-desc">With a guide from the community itself. Murals, memory, and what urban regeneration looks like from the inside — not from the tourist escalators.</div></div><div class="w-arr">↗</div></a>
+      <a class="w-item" href="https://en.wikipedia.org/wiki/Santa_Elena,_Antioquia" target="_blank"><div class="w-n">08</div><div><div class="w-reg">Antioquia · Near Medellín</div><div class="w-name">Santa Elena — Silleteros and Andean landscape</div><div class="w-desc">A highland village above Medellín. Silletero flower farmers whose ancestors carried flowers into the city for generations. UNESCO-listed, completely alive.</div></div><div class="w-arr">↗</div></a>
+      <a class="w-item" href="https://en.wikipedia.org/wiki/Barranquilla" target="_blank"><div class="w-n">09</div><div><div class="w-reg">Barranquilla · Atlántico</div><div class="w-name">Community Activity — Barranquilla</div><div class="w-desc">Colombia's most diverse port city. Direct activity with a local organization: music, gastronomy, or craft. Participation, not observation.</div></div><div class="w-arr">↗</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEYS -->
+<section class="sec journeys-bg" id="journeys">
+  <div class="mw">
+    <div class="rv tc">
+      <div class="sec-eye">Our Journeys</div>
+      <h2>Three regions.<br><em>Three distinct ways to engage.</em></h2>
+      <p class="sub">Each available in 6 or 9-day formats. Can be combined for a fuller Colombia experience.</p>
+    </div>
+    <div class="j-list rv" style="transition-delay:.1s">
+      <div class="j-item">
+        <div class="j-num">01</div>
+        <div>
+          <div class="j-lbl">Caribbean Coast</div>
+          <div class="j-name">Cartagena or Santa Marta — History, contradiction, identity</div>
+          <div class="j-dur">6 or 9 days · Cartagena de Indias or Santa Marta · Bolívar / Magdalena</div>
+          <div class="j-desc">Two distinct Caribbean cities. Cartagena — colonial architecture, Getsemaní, living culture. Santa Marta — Sierra Nevada, indigenous context, rawer relationship with the sea.</div>
+        </div>
+        <div class="j-price"><span class="j-from">Investment</span><span class="j-amt">$1,400–$1,800</span><span class="j-cur">USD per person</span><span class="j-badge">4–10 travelers</span></div>
+      </div>
+      <div class="j-item">
+        <div class="j-num">02</div>
+        <div>
+          <div class="j-lbl">Eje Cafetero · Quindío</div>
+          <div class="j-name">Coffee Region — Landscape, rhythm, rural life</div>
+          <div class="j-dur">6 or 9 days · Salento, Valle del Cocora, Finca El Ocaso · Quindío</div>
+          <div class="j-desc">A slower pace that allows observation and real conversation. Working farms, cloud forest trails, colonial coffee towns, and the people whose lives are shaped by this landscape.</div>
+        </div>
+        <div class="j-price"><span class="j-from">Investment</span><span class="j-amt">$1,400–$1,800</span><span class="j-cur">USD per person</span><span class="j-badge">4–10 travelers</span></div>
+      </div>
+      <div class="j-item">
+        <div class="j-num">03</div>
+        <div>
+          <div class="j-lbl">Antioquia</div>
+          <div class="j-name">Medellín — Transformation, tension, social change</div>
+          <div class="j-dur">6 or 9 days · Medellín, Santa Elena · Antioquia</div>
+          <div class="j-desc">A city that invites questions, not conclusions. From the murals of Comuna 13 to the flower farmers of Santa Elena — a territory that has changed rapidly and still carries its contradictions openly.</div>
+        </div>
+        <div class="j-price"><span class="j-from">Investment</span><span class="j-amt">$1,400–$1,800</span><span class="j-cur">USD per person</span><span class="j-badge">4–10 travelers</span></div>
+      </div>
+    </div>
+    <p class="j-note">These journeys can be combined — 2 or 3 regions — for a fuller Colombia experience. Pricing and design on request.</p>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec testi-bg" id="reviews">
+  <div class="mw">
+    <div class="rv tc">
+      <div class="sec-eye">From our travelers</div>
+      <h2>What people say <em>after the journey</em></h2>
+    </div>
+    <div class="t-grid rv" style="transition-delay:.1s">
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"Andrea has helped me with every aspect of my travels to Colombia — transportation, hotels, restaurants. She has assisted me with trips to Santa Marta, Barranquilla, Cartagena and the Coffee areas. She has a deep love of her country and a deep caring for the people she helps. A brilliant guide."</p>
+        <div class="t-foot"><div class="t-av">MC</div><div><span class="t-name">Matthew Chance</span><span class="t-orig">Nashville, Tennessee · ERP Consultant</span></div></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"Andrea is sharp, capable, and wise beyond her years. Entrepreneurial and ambitious, with a clear passion for building meaningful connection. She speaks both English and Spanish with clarity, nuance, and confidence."</p>
+        <div class="t-foot"><div class="t-av">EA</div><div><span class="t-name">Eleanor Antonio FCCA</span><span class="t-orig">Netherlands · Portfolio Finance Director</span></div></div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"Andrea provided an incredible service in every way. My group appreciated her excellent organising and in-depth knowledge. She is trustworthy and a lovely person to spend time with. We will come again."</p>
+        <div class="t-foot"><div class="t-av">CS</div><div><span class="t-name">Charlotte Sawyer</span><span class="t-orig">London, UK · Director, Rave On For The Avon</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec faq-bg" id="faq">
+  <div class="mw">
+    <div class="rv tc">
+      <div class="sec-eye">Frequently Asked Questions</div>
+      <h2>What people usually ask <em>before deciding</em></h2>
+    </div>
+    <div class="faq-list rv" style="transition-delay:.1s">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Is this suitable for someone with limited mobility?<svg class="faq-arr" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7.5l5 5 5-5" stroke-linecap="round"/></svg></div>
+        <div class="faq-a">It depends on the program and your mobility level. Tell us your specific situation before booking and we design accordingly. We don't use "suitable for everyone" as a slogan.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What makes this different from a traditional tour?<svg class="faq-arr" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7.5l5 5 5-5" stroke-linecap="round"/></svg></div>
+        <div class="faq-a">In a traditional tour, the itinerary serves the logistics. In ours, logistics serve the human contact. We spend real time with families, artisans, and community leaders in their actual spaces. Groups of 4 to 10, no 40-person buses.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Do I need to speak Spanish?<svg class="faq-arr" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7.5l5 5 5-5" stroke-linecap="round"/></svg></div>
+        <div class="faq-a">No. Facilitators are bilingual (Spanish/English). That said, basic Spanish makes direct access to communities naturally richer. Not required, but worth trying.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What's included in the price?<svg class="faq-arr" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7.5l5 5 5-5" stroke-linecap="round"/></svg></div>
+        <div class="faq-a">Accommodation, internal transport in Colombia, meals per itinerary, facilitators, community and cultural site access, and a direct contribution to local initiatives. International flights and travel insurance not included. Full breakdown shared before confirmation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">How physically demanding are the experiences?<svg class="faq-arr" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7.5l5 5 5-5" stroke-linecap="round"/></svg></div>
+        <div class="faq-a">Moderate baseline. Walks of 30 minutes to 2 hours on variable terrain. Nothing requiring special training. Days include real free time. If you have specific conditions, tell us and we adjust.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Can I travel solo?<svg class="faq-arr" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 7.5l5 5 5-5" stroke-linecap="round"/></svg></div>
+        <div class="faq-a">Yes — a significant part of our travelers do. Small groups naturally facilitate connection between people. You're not alone operationally, but your experience is entirely your own.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-bg" id="contact">
+  <div class="contact-inner rv">
+    <div class="sec-eye">Start here</div>
+    <h2 style="color:var(--cr)">This is not about seeing more.<br><em>It's about experiencing differently.</em></h2>
+    <p class="sub">If this resonates, the next step is simple. Fill out the form and we'll get in touch to understand what you're looking for.</p>
+    <p class="contact-note">No portals, no automated funnels. A real conversation before anything else.</p>
+    <div class="form">
+      <div class="fg2">
+        <div class="form-row"><label>Full name *</label><input type="text" placeholder="Your name"></div>
+        <div class="form-row"><label>Email *</label><input type="email" placeholder="your@email.com"></div>
+      </div>
+      <div class="fg2">
+        <div class="form-row"><label>Age range *</label><input type="text" placeholder="e.g. 60–65"></div>
+        <div class="form-row"><label>Country of residence *</label><input type="text" placeholder="Where are you based?"></div>
+      </div>
+      <div class="form-row"><label>What kind of experience are you looking for? *</label><textarea placeholder="Share your interests, timing, and what draws you to this kind of travel."></textarea></div>
+      <button class="form-submit">Apply for this experience →</button>
+    </div>
+    <div class="channels">
+      <a href="https://www.linkedin.com/in/andrea-samara-dussan" class="chan" target="_blank">LinkedIn</a>
+      <a href="https://www.instagram.com/viajesadda_/" class="chan" target="_blank">@viajesadda_</a>
+      <a href="mailto:adda@viajesadda.com" class="chan">adda@viajesadda.com</a>
+      <a href="tel:+3217604505" class="chan">+321 760 4505</a>
+    </div>
+    <p class="contact-fine">No time pressure. If the program is right for you, it will still be right next week.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo">ADDA COMMUNITY<span>Cultural travel · Colombia</span></div>
+  <div class="f-contact"><a href="mailto:adda@viajesadda.com">adda@viajesadda.com</a> &nbsp;·&nbsp; <a href="tel:+3217604505">+321 760 4505</a></div>
+  <div class="f-social">
+    <a href="https://www.instagram.com/viajesadda_/" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
+    <a href="https://www.linkedin.com/in/andrea-samara-dussan" target="_blank"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 10v7M7 7v.5M11 17v-4c0-1.5 1-2 2-2s2 .5 2 2v4M11 10v7"/></svg></a>
+    <a href="mailto:adda@viajesadda.com"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg></a>
+  </div>
+  <div class="f-copy">© 2026 ADDA COMMUNITY · All rights reserved</div>
+</footer>
+
+<script>
+function toggleFaq(btn){
+  var item=btn.parentElement;
+  var open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open')});
+  if(!open)item.classList.add('open');
+}
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('on')});
+},{threshold:.08});
+document.querySelectorAll('.rv').forEach(function(el){obs.observe(el)});
+</script>
+</body>
+</html>
